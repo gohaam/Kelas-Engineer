@@ -1,20 +1,56 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+🚀 Kelas Engineer: Jalur Belajar Software Engineering Terstruktur
+Kelas Engineer adalah inisiatif sumber terbuka (open-source) yang dirancang untuk membantu siapa pun memulai karier di bidang teknologi. Repositori ini berisi kurikulum komprehensif, sumber belajar pilihan, dan panduan praktis dari tingkat dasar hingga mahir.
 
-# Run and deploy your AI Studio app
+📌 Mengapa Repositori Ini Ada?
+Menjadi seorang Software Engineer bukan hanya tentang belajar sintaks bahasa pemrograman, tapi tentang pemecahan masalah dan pemahaman sistem. Repositori ini bertujuan untuk:
 
-This contains everything you need to run your app locally.
+Memberikan peta jalan (roadmap) yang jelas agar tidak tersesat.
 
-View your app in AI Studio: https://ai.studio/apps/drive/13IKi9-PTbwWsZLjcAeUs4vlVxORbvIzG
+Mengkurasi sumber daya gratis terbaik (artikel, video, kursus).
 
-## Run Locally
+Membangun komunitas belajar yang inklusif bagi developer Indonesia.
 
-**Prerequisites:**  Node.js
+🗺️ Kurikulum Pembelajaran
+Kurikulum dibagi menjadi beberapa fase utama:
 
+1. Fondasi Dasar (CS Fundamentals)
+Cara kerja internet & komputer.
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+Algoritma dan Struktur Data (DSA).
+
+Version Control System (Git & GitHub).
+
+2. Pengembangan Web (The Web Stack)
+Front-end: HTML, CSS, JavaScript (ES6+), React/Next.js.
+
+Back-end: Node.js/Go/Python, Database (SQL & NoSQL), RESTful API.
+
+3. Engineering Excellence
+Clean Code & Design Patterns.
+
+Testing (Unit, Integration, E2E).
+
+DevOps Dasar (Docker, CI/CD, Cloud Fundamentals).
+
+🛠️ Cara Menggunakan
+Fork repositori ini ke akun Anda.
+
+Clone ke mesin lokal Anda.
+
+Ikuti modul secara berurutan atau pilih topik yang ingin Anda perdalam.
+
+Gunakan Checklist.md (jika ada) untuk memantau progres belajar Anda.
+
+🤝 Kontribusi
+Kami sangat terbuka bagi siapa saja yang ingin memperbaiki materi atau menambahkan sumber daya baru!
+
+Baca Panduan Kontribusi.
+
+Cari isu yang tersedia atau buat isu baru.
+
+Kirimkan Pull Request (PR) dengan deskripsi yang jelas.
+
+📄 Lisensi
+Proyek ini dilisensikan di bawah MIT License - lihat file LICENSE untuk detailnya.
+
+Dibuat dengan ❤️ oleh Gohaam.
