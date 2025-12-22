@@ -1,22 +1,30 @@
 
-import { GoogleGenAI } from "@google/genai";
+import { GoogleGenAI, GenerateContentResponse } from "@google/genai";
+import { translations } from "../translations";
+import { Language } from "../App";
 
-const API_KEY = process.env.API_KEY || "";
-const ai = new GoogleGenAI({ apiKey: API_KEY });
-
-export const getCareerAdvice = async (message: string) => {
+export async function* streamCareerAdvice(message: string, lang: Language) {
   try {
-    const response = await ai.models.generateContent({
+    const ai = new GoogleGenAI({ apiKey: process.env.API_KEY! });
+    const t = translations[lang].ai;
+    
+    const responseStream = await ai.models.generateContentStream({
       model: "gemini-3-flash-preview",
-      contents: message,
+      contents: [{ parts: [{ text: message }] }],
       config: {
-        systemInstruction: "Anda adalah asisten karier AI untuk 'Kelas Engineer Indonesia'. Tugas Anda adalah memberikan saran tentang jalur karier teknik (sipil, elektro, mesin, dll.) dan merekomendasikan keterampilan yang harus dipelajari. Jawab dalam Bahasa Indonesia yang profesional dan ramah. Singkat dan padat.",
-        temperature: 0.7,
+        systemInstruction: t.system + " Provide strategic career advice for engineers. Focus on future industry trends in Indonesia and global standards.",
+        temperature: 0.8,
       },
     });
-    return response.text;
+
+    for await (const chunk of responseStream) {
+      const text = (chunk as GenerateContentResponse).text;
+      if (text) {
+        yield text;
+      }
+    }
   } catch (error) {
     console.error("Gemini API Error:", error);
-    return "Maaf, saya sedang mengalami kendala teknis. Silakan coba lagi nanti.";
+    yield lang === 'id' ? "Maaf, kendala koneksi." : "Sorry, connection issue.";
   }
-};
+}

@@ -1,39 +1,58 @@
 
 import React from 'react';
+import { ChevronRight, PlayCircle } from 'lucide-react';
+import { translations } from '../translations';
+import { Language } from '../App';
 
-const Hero: React.FC = () => {
+interface HeroProps {
+  lang: Language;
+}
+
+const Hero: React.FC<HeroProps> = ({ lang }) => {
+  const t = translations[lang].hero;
+  
+  const scrollToCourses = () => {
+    document.getElementById('courses')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
-    <section className="relative min-h-[90vh] flex items-center pt-20">
+    <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
       <div 
-        className="absolute inset-0 z-0 bg-cover bg-center"
+        className="absolute inset-0 z-0 bg-cover bg-fixed bg-center scale-105"
         style={{ 
-          backgroundImage: 'linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url("https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop")' 
+          backgroundImage: 'linear-gradient(to right, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0.2) 100%), url("https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop")' 
         }}
       />
       
       <div className="container mx-auto px-4 md:px-8 relative z-10 text-white">
-        <div className="max-w-3xl">
-          <h1 className="text-4xl md:text-6xl font-extrabold leading-tight mb-4">
-            SELAMAT DATANG<br />
-            di kelas enginer indonesia.
+        <div className="max-w-4xl">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-yellow-primary/20 backdrop-blur-sm border border-yellow-primary/30 rounded-full mb-8">
+            <span className="w-2 h-2 bg-yellow-primary rounded-full animate-pulse"></span>
+            <span className="text-xs font-black uppercase tracking-widest text-yellow-primary">{t.badge}</span>
+          </div>
+          
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-black leading-[1.05] mb-8">
+            {t.title_part1} <br />
+            <span className="text-yellow-primary italic">{t.title_part2}</span> {t.title_part3}
           </h1>
-          <p className="text-lg md:text-xl mb-6 opacity-90 max-w-xl">
-            Upgrade your skill with kelas enginer By ZAADA <br />
-            Kelas Engineer | Pelatihan & Training Ke teknikan
+          
+          <p className="text-xl md:text-2xl mb-12 opacity-80 max-w-2xl leading-relaxed font-medium">
+            {t.desc}
           </p>
           
-          <button className="bg-yellow-primary text-black font-extrabold px-10 py-3 rounded-md mb-8 hover:bg-yellow-400 transition-all shadow-lg">
-            Temukan Kelas
-          </button>
-          
-          <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm md:text-base font-bold text-gray-200">
-            <span>#tekniksipil</span>
-            <span>#teknikelektro</span>
-            <span>#teknikindustri</span>
-            <span>#teknikarsitektur</span>
-            <span>#teknikmesin</span>
-            <span>#teknikkimia</span>
-            <span>#teknikperkapalan</span>
+          <div className="flex flex-col sm:flex-row items-center gap-6">
+            <button 
+              onClick={scrollToCourses}
+              className="group w-full sm:w-auto bg-yellow-primary text-black font-black px-12 py-5 rounded-2xl flex items-center justify-center gap-3 hover:bg-white hover:scale-105 transition-all shadow-2xl"
+            >
+              {t.cta}
+              <ChevronRight size={20} />
+            </button>
+            
+            <button className="w-full sm:w-auto flex items-center justify-center gap-3 font-bold text-lg hover:text-yellow-primary transition-colors group">
+              <PlayCircle className="text-yellow-primary group-hover:scale-110 transition-transform" size={32} />
+              <span>{t.showreel}</span>
+            </button>
           </div>
         </div>
       </div>

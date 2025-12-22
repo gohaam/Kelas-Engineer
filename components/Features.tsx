@@ -5,17 +5,17 @@ import { BookOpen, Award, Clock, Users } from 'lucide-react';
 const Features: React.FC = () => {
   const features = [
     {
-      icon: <BookOpen className="text-yellow-500" size={32} />,
+      icon: <BookOpen className="text-yellow-primary" size={32} />,
       title: "Kurikulum Industri",
       desc: "Materi disusun berdasarkan standar kebutuhan industri terkini oleh para praktisi ahli."
     },
     {
-      icon: <Award className="text-yellow-500" size={32} />,
+      icon: <Award className="text-yellow-primary" size={32} />,
       title: "Sertifikat Kompetensi",
       desc: "Dapatkan sertifikat penyelesaian yang diakui untuk meningkatkan portofolio profesional Anda."
     },
     {
-      icon: <Clock className="text-yellow-500" size={32} />,
+      icon: <Clock className="text-yellow-primary" size={32} />,
       title: "Akses Selamanya",
       desc: "Sekali beli, Anda dapat mengakses materi video dan modul kapan saja tanpa batas waktu."
     }
